@@ -28,7 +28,7 @@ function longJump()
    player:setVelocity(0, 10)
 end
 input:bind("r", longJump)
-	    end
+	end
     end,
     Default = true,
     HoverText = "Press R"
