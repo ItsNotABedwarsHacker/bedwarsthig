@@ -33,3 +33,17 @@ input:bind("r", longJump)
     Default = true,
     HoverText = "Press R"
 })
+
+local Custom Long Jump = LIB("Blatant", {
+    Name = "Long Jump V0.5",
+    Function = function(callback) 
+        if callback then
+function longJump()
+   player:setVelocity(0, 10)
+end
+input:bind("r", longJump)
+	end
+    end,
+    Default = true,
+    HoverText = "Press R"
+})
