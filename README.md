@@ -1,7 +1,8 @@
 # Loadstring
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ItsNotABedwarsHacker/vape_plugin/main/main", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ItsNotABedwarsHacker/rblxbedwarsthig/main/main", true))()
 
 # Directions
 
-R for long jump
+R for Long Jump
+C for Float
