@@ -1,29 +1,3 @@
-repeat task.wait() until game:IsLoaded()
-repeat task.wait() until shared.GuiLibrary
-local GuiLibrary = shared.GuiLibrary
-local ScriptSettings = {}
-local UIS = game:GetService("UserInputService")
-local LIB = function(tab, argstable) 
-    return GuiLibrary["ObjectsThatCanBeSaved"][tab.."Window"]["Api"].CreateOptionsButton(argstable)
-end
-
-function notify(text)
-    local frame = GuiLibrary["CreateNotification"]("Client Notification", text, 5, "assets/WarningNotification.png")
-    frame.Frame.Frame.ImageColor3 = Color3.fromRGB(255, 64, 64)
-end
-function boxnotify(text)
-    if messagebox then
-        messagebox(text, "Vape V4", 0)
-     end
-end
-
-
-notify("Vape Custom Loaded")
-
-local CustomLongJump = LIB("Blatant", {
-    Name = "Long Jump V0.5",
-    Function = function(callback) 
-        if callback then
 -- Declare a function to handle the long jump
 function longJump()
    -- Set a timer to track the elapsed time
@@ -40,6 +14,4 @@ end
 -- Bind the long jump function to a key press event
 input:bind("r", longJump)
 	end,
-    Default = true,
-    HoverText = "Press R"
-})
+
