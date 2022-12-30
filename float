@@ -1,0 +1,33 @@
+-- Import the required modules
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+
+-- Define the player character
+local player = Players.LocalPlayer
+
+-- Declare a function to handle the float
+function float()
+   -- Set the player's gravity to 0
+   player.Character.Humanoid.PlatformStand = true
+
+   -- Set the player's velocity to a small value
+   player.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0.1, 0)
+end
+
+-- Declare a flag to track the float state
+local isFloating = false
+
+-- Bind the float function to a key press event
+UserInputService.InputBegan:Connect(function(input)
+   if input.KeyCode == Enum.KeyCode.V then
+      if isFloating then
+         -- Stop the float if it is currently active
+         player.Character.Humanoid.PlatformStand = false
+         isFloating = false
+      else
+         -- Start the float if it is currently inactive
+         float()
+         isFloating = true
+      end
+   end
+end)
