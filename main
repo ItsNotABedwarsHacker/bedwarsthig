@@ -13,5 +13,38 @@ end
 
 -- Bind the long jump function to a key press event
 input:bind("r", longJump)
-	end,
+
+-- Import the required modules
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+
+-- Define the player character
+local player = Players.LocalPlayer
+
+-- Declare a function to handle the float
+function float()
+   -- Set the player's gravity to 0
+   player.Character.Humanoid.PlatformStand = true
+
+   -- Update the player's position every frame
+   while true do
+      player.Character.HumanoidRootPart.Position = player.Character.HumanoidRootPart.Position + Vector3.new(0, 0.1, 0)
+      wait(1/60)
+   end
+end
+
+-- Bind the float function to a key press event
+UserInputService.InputBegan:Connect(function(input)
+   if input.KeyCode == Enum.KeyCode.C then
+      float()
+   end
+end)
+
+-- Stop the float when the "c" key is released
+UserInputService.InputEnded:Connect(function(input)
+   if input.KeyCode == Enum.KeyCode.C then
+      player.Character.Humanoid.PlatformStand = false
+   end
+end)
+
 
