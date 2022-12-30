@@ -1,0 +1,32 @@
+-- Import the required modules
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+-- Define the player character
+local player = Players.LocalPlayer
+
+-- Define the player's humanoid character model
+local humanoid = player.Character.Humanoid
+
+-- Declare a function to handle the teleport
+function teleport()
+   -- Find the nearest player character
+   local nearestPlayer = Players:GetPlayers()[1]
+   for _, otherPlayer in pairs(Players:GetPlayers()) do
+      if (otherPlayer.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude < (nearestPlayer.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude then
+         nearestPlayer = otherPlayer
+      end
+   end
+
+   -- Teleport the player 10 studs above the nearest player
+   player.Character.HumanoidRootPart.CFrame = CFrame.new(nearestPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, 10, 0))
+end
+
+-- Run the script every frame
+RunService.RenderStepped:Connect(function()
+   -- Check if the player's health is below 26
+   if humanoid.Health < 26 then
+      -- Teleport the player
+      teleport()
+   end
+end)
