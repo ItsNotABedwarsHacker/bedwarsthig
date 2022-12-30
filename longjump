@@ -1,0 +1,25 @@
+-- Import the required modules
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+
+-- Define the player character
+local player = Players.LocalPlayer
+
+-- Declare a function to handle the long jump
+function longJump()
+   -- Set the player's velocity to a large value
+   player.Character.Humanoid:ChangeState(11)
+end
+
+-- Run the script indefinitely
+while true do
+   -- Check for the "r" key press event
+   UserInputService.InputBegan:Connect(function(input)
+      if input.KeyCode == Enum.KeyCode.R then
+         longJump()
+      end
+   end)
+
+   -- Wait for a short time before checking again
+   wait(0.1)
+end
