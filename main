@@ -20,7 +20,7 @@ end
 
 notify("Vape Custom Loaded")
 
-local Custom Long Jump = LIB("Blatant", {
+local CustomLongJump = LIB("Blatant", {
     Name = "Long Jump V0.5",
     Function = function(callback) 
         if callback then
