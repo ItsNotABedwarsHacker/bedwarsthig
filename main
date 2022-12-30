@@ -24,26 +24,22 @@ local Custom Long Jump = LIB("Blatant", {
     Name = "Long Jump V0.5",
     Function = function(callback) 
         if callback then
+-- Declare a function to handle the long jump
 function longJump()
-   player:setVelocity(0, 10)
-end
-input:bind("r", longJump)
-	end
-    end,
-    Default = true,
-    HoverText = "Press R"
-})
+   -- Set a timer to track the elapsed time
+   local timer = 0
 
-local Custom Long Jump = LIB("Blatant", {
-    Name = "Long Jump V0.5",
-    Function = function(callback) 
-        if callback then
-function longJump()
-   player:setVelocity(0, 10)
+   -- Update the timer every frame
+   while timer < 3 do
+      timer = timer + 1/60
+      player:setVelocity(0, 10)
+      yield()
+   end
 end
+
+-- Bind the long jump function to a key press event
 input:bind("r", longJump)
-	end
-    end,
+	end,
     Default = true,
     HoverText = "Press R"
 })
