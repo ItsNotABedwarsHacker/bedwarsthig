@@ -4,5 +4,5 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ItsNotABedwarsHacker/
 
 # Directions
 
-R for Long Jump
-C for Float
+- R for Long Jump
+- C for Float
